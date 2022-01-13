@@ -6,20 +6,18 @@ import { newKitFromWeb3 } from "@celo/contractkit"
 import DrugCheckAbi from 'abis/DrugCheck.json'
 import IERC20Abi from 'abis/IERC20Token'
 
-
+// import components
 import Navbar from 'components/NavBar/Navbar'
 import Main from 'pages/Main'
 import AddDrug from 'pages/AddDrug'
 import Drug from 'pages/Drug'
 import Purchases from 'pages/Purchases'
 
+// import constants from constants.js
+import { drugCheckContractAddress, cUSDContractAddress, ERC20_DECIMALS } from "./utils/constants";
 
-
+// build app
 const App = () => {
-    const drugCheckContractAddress = "0x1fE5C95cA34eAD004FE1D75D299e2fF49042a346"
-    const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1"
-    const ERC20_DECIMALS = 18
-
     const [message, setMessage] = useState(null)
     const [account, setAccount] = useState('')
     const [DrugKit, setKit] = useState(null)
@@ -28,8 +26,6 @@ const App = () => {
     const [balance, setBalance] = useState(null)
     const [isAdmin, setIsAdmin] = useState(false)
 
-
-
     useEffect(() => {
         loadCelo()
     }, [])
@@ -37,7 +33,7 @@ const App = () => {
         if (DrugKit && account) {
             loadBlockchainData()
         } else {
-            console.log('no contract kit or address')
+            setMessage('no contract kit or address');
         }
     }, [DrugKit, account])
     useEffect(() => {
@@ -52,7 +48,6 @@ const App = () => {
             try {
                 await window.celo.enable()
                 setMessage()
-
                 const web3 = new Web3(window.celo)
                 let kit = newKitFromWeb3(web3)
 
@@ -61,8 +56,8 @@ const App = () => {
 
                 kit.defaultAccount = user_address
 
-                await setAccount(user_address)
-                await setKit(kit)
+                setAccount(user_address)
+                setKit(kit)
             } catch (error) {
                 setMessage(`⚠️ ${error}.`)
             }
@@ -77,19 +72,21 @@ const App = () => {
             const contract = new DrugKit.web3.eth.Contract(DrugCheckAbi, drugCheckContractAddress)
             const celoContract = new DrugKit.web3.eth.Contract(IERC20Abi, cUSDContractAddress)
 
-            await setContract(contract)
-            await setCeloContract(celoContract)
-            await setBalance(USD)
+            setContract(contract)
+            setCeloContract(celoContract)
+            setBalance(USD)
         } catch (error) {
-            console.log(error)
+            // removed error console.log and pushed error to setMessage
+            setMessage(error);
         }
     }
     const setAdmin = async () => {
         try {
             const isAdmin = await Contract.methods.isAdmin().call()
-            await setIsAdmin(isAdmin)
+            setIsAdmin(isAdmin)
         } catch (error) {
-            console.log(error)
+            // removed error console.log and pushed error to setMessage
+            setMessage(error);
         }
     }
 

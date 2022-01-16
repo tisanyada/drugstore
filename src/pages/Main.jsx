@@ -97,7 +97,7 @@ const Main = ({ Contract, CeloContract, drugCheckContractAddress, admin, account
                         htmlFor="verify"
                         className="badge bg-success p-2"
                         onClick={() => setShowForm(!showForm)}
-                        style={{cursor: 'pointer'}}
+                        style={{ cursor: 'pointer' }}
                     >
                         verify drug
                     </label>

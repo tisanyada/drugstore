@@ -32,6 +32,7 @@ const App = () => {
     useEffect(() => {
         if (DrugKit && account) {
             loadBlockchainData()
+            setMessage(null)
         } else {
             setMessage('no contract kit or address');
         }

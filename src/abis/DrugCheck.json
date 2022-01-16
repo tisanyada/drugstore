@@ -1,338 +1,342 @@
 [
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_bn",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_sn",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_prdDate",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_expDate",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_verificationKey",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_directions",
-				"type": "string"
-			}
-		],
-		"name": "addDrug",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_drugindex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "buyDrug",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "drugCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "drugDosage",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "drugs",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "manufacturer",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "batchNumber",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "serialNumber",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "prdDate",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "expDate",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "verificationKey",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "isAdmin",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "name",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "purchasedDrugCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "purchasedDrugs",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "manufacturer",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "batchNumber",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "serialNumber",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "prdDate",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "expDate",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "verificationKey",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_index",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_verificationKey",
-				"type": "uint256"
-			}
-		],
-		"name": "validateDrug",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "verificationKeys",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	}
+    {
+        "inputs": [],
+        "stateMutability": "payable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_image",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_bn",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_sn",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_prdDate",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_expDate",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_verificationKey",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_directions",
+                "type": "string"
+            }
+        ],
+        "name": "addDrug",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "sellerAdd",
+                "type": "address"
+            }
+        ],
+        "name": "addMulDrug",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_drugindex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "buyDrug",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "totalPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "buyMulDrug",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "drugAddresses",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "drugCount",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "name": "drugDosage",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "drugs",
+        "outputs": [
+            {
+                "internalType": "address payable",
+                "name": "manufacturer",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "image",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "batchNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "serialNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "prdDate",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "expDate",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "verificationKey",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "isAdmin",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "name",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "purchasedDrugCount",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "purchasedDrugs",
+        "outputs": [
+            {
+                "internalType": "address payable",
+                "name": "manufacturer",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "image",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "batchNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "serialNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "prdDate",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "expDate",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "verificationKey",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "verificationKeys",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
 ]

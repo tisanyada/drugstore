@@ -1,4 +1,8 @@
-pragma solidity 0.5.16;
+// SPDX-License-Identifier: MIT
+// pragma solidity 0.5.16;
+pragma solidity >=0.7.0 <0.9.0;
+
+import "./safeMath.sol";
 
 interface IERC20Token {
     function transfer(address, uint256) external returns (bool);
@@ -13,9 +17,15 @@ interface IERC20Token {
 }
 
 contract DrugCheck{
+    // using safemath for uint256
+    using SafeMath for uint256;
+
     string public name = 'Drug Scanner';
     address payable admin;
     address internal cUsdTokenAddress = 0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1;
+
+    // drug addresses array for multiple payments
+    address[] public drugAddresses;
 
     uint public drugCount = 0;
     uint public purchasedDrugCount = 0;
@@ -35,8 +45,9 @@ contract DrugCheck{
     mapping(uint => uint) public verificationKeys;
     mapping(string => string) public drugDosage;
 
-    constructor() public {
-        admin = msg.sender;
+    // made casting and coverted constructor to abstract
+    constructor() payable{
+        admin = payable(msg.sender);
     }
 
     modifier onlyAdmin(){
@@ -62,9 +73,9 @@ contract DrugCheck{
         uint _price,
         uint _verificationKey,
         string memory _directions
-    ) public onlyAdmin {
+    ) public payable onlyAdmin {
         {
-            drugs[drugCount] = Drug(msg.sender, _image, _bn, _sn, _name, _prdDate, _expDate, _price, _verificationKey);
+            drugs[drugCount] = Drug(payable(msg.sender), _image, _bn, _sn, _name, _prdDate, _expDate, _price, _verificationKey);
         }
 
         {
@@ -78,7 +89,7 @@ contract DrugCheck{
     }
 
 
-    function buyDrug(uint _drugindex, uint _amount) public payable{
+    function buyDrug(uint _drugindex, uint _amount) public payable {
         require(
 		  IERC20Token(cUsdTokenAddress).transferFrom(
 			msg.sender,
@@ -91,5 +102,16 @@ contract DrugCheck{
         purchasedDrugs[purchasedDrugCount][msg.sender] = drugs[_drugindex];
         
         purchasedDrugCount++;
+    }
+
+    function addMulDrug(address sellerAdd) public returns (address[] memory){
+        drugAddresses.push(sellerAdd);
+        return (drugAddresses);
+    }
+
+    function buyMulDrug(uint totalPrice) public payable {
+        for (uint i = 0; i < drugAddresses.length; i++) {
+            payable(drugAddresses[i]).transfer(totalPrice);
+        }
     }
 }
